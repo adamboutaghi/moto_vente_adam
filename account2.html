@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgba(255, 255, 255, 0.797);
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 3, 57, 0.838), rgba(213, 213, 213, 0)), url(.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(0, 76, 239);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .A {
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgba(81, 81, 81, 0.2);
+
+        }
+
+        .B {
+            position: relative;
+            width: 450px;
+            border: 4px solid black;
+            border-radius: 20px;
+            padding: 4.5em 2.5em 4em 2.5em;
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+            height: 560PX;
+
+        }
+
+        .C {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 140PX;
+            height: 50PX;
+            border-radius: 0 0 20PX 20PX;
+            background-color: rgb(13, 12, 12);
+
+
+        }
+
+
+        .C span {
+            font-size: 30px;
+        }
+
+        .D {
+            position: relative;
+            display: flex;
+            flex-direction: column-reverse;
+            margin: 20px 0;
+        }
+
+        .input-field {
+            width: 100%;
+            height: 55px;
+            background-color: rgba(0, 0, 0, 0.973);
+            padding-inline: 20px 50px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 15px;
+        }
+
+        #user {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            top: 15px;
+            margin-left: 20px;
+            margin-bottom: 5PX;
+        }
+
+        .input-submit {
+            width: 100%;
+            height: 40PX;
+            border-radius: 15px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            font-size: 20PX;
+            font-style: italic;
+            border: solid 3px rgb(0, 0, 0);
+            background-color: rgba(255, 255, 255, 0.71);
+            margin-top: 30PX;
+
+        }
+
+        .h {
+            position: fixed;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-weight: 1000;
+        }
+        /* Style du bouton flottant Accueil */
+.h {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* S'assure qu'il reste au-dessus du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1); /* Effet transparent */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Bouton rond */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Style de l'icône à l'intérieur */
+.home-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Force l'icône en blanc si elle est noire à l'origine */
+    transition: transform 0.3s ease;
+}
+
+/* Effets au Survol (Hover) */
+.h:hover {
+    background: #000679; /* Couleur assortie à vos boutons "Shop Now" */
+    transform: scale(1.1) rotate(5deg);
+    border-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 6, 121, 0.5);
+}
+
+.h:hover .home-icon {
+    transform: scale(1.1);
+    filter: invert(1); /* Garde l'icône blanche */
+}
+
+/* Optionnel : Adaptation pour mobile */
+@media (max-width: 768px) {
+    .h {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <form action="">
+        <div class="A">
+            <div class="B">
+                <div class="C">
+                    <span>Login</span>
+                </div>
+                <H1>S'inscrire</H1>
+                <div class="D">
+                    <input type="text" name="" id="user" class="input-field" required>
+                    <label for="user" class="label">E-mail &nbsp;<i class="fa-regular fa-user"></i></label>
+                </div>
+                <div class="D">
+                    <input type="password" name="" id="pass" class="input-field" required>
+                    <label for="pass" class="label"> Password <i class="fa-solid fa-lock"></i></label>
+                </div>
+                <div class="D">
+                    <input type="password" name="" id="pass" class="input-field" required>
+                    <label for="pass" class="label">Confirmer votre Password <i class="fa-solid fa-lock"></i></label>
+                </div>
+                <div class="E">
+                    <div class="D">
+                        <button type="submit" class="input-submit">Créer</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

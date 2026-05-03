@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Motos</title>
+    <link rel="website icon" type="jpg" href="LOGO.jpg">
+<style>
+    /* --- Base Style --- */
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(rgba(0, 2, 45, 0.838), rgba(0, 0, 0, 0.002)), url(blanc.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: system-ui, -apple-system, sans-serif;
+        color: white;
+        overflow-x: hidden; /* Bach maykounch s-ster l-te7t */
+    }
+
+    header {
+        background-color: #000000;
+        color: rgba(152, 152, 152, 0.82);
+        padding: 15px 0;
+        text-align: center;
+        border-radius: 0 0 10px 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        color: #fffbfb;
+        text-decoration: none;
+        padding: 5px 15px;
+        transition: 0.3s;
+    }
+
+    /* --- Section Products --- */
+    .products {
+        padding: 2rem 2%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Bach i-ji l'unwan o l'grid f l'wst */
+    }
+
+    .products h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        color: #ffffff;
+        margin: 20px 0 50px 0; /* 7eyedna margin-left: 440px */
+        font-size: clamp(1.2rem, 5vw, 2.5rem);
+        border: solid 2px rgb(255, 251, 251);
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #000000;
+        outline: 4px solid black;
+    }
+
+    /* --- Grid System (3 Columns Force) --- */
+    .product-grid {
+        display: grid;
+        width: 100%;
+        max-width: 1200px;
+        grid-template-columns: repeat(3, 1fr); /* 3 div f s-ster dima */
+        gap: 20px;
+    }
+
+    /* --- Product Card Style --- */
+    .product-card {
+        background: #151111;
+        border: 4px solid #070707;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .product-card:hover {
+        background-color: #000000;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .product-card h3 {
+        margin: 10px 5px;
+        font-size: 1.1rem;
+        color: #ffffff;
+    }
+
+    .product-card .price {
+        display: block;
+        margin-bottom: 10px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .product-card button {
+        background-image: linear-gradient(rgba(0, 6, 121, 0.8), rgba(0, 0, 0, 0.5));
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.8rem;
+        transition: 0.3s;
+    }
+
+    /* --- Adaptation Mobile (3 per row) --- */
+    @media (max-width: 768px) {
+        .product-grid {
+            grid-template-columns: repeat(3, 1fr); /* Tebqa 3 f s-ster */
+            gap: 8px; /* Sgherna l-faragh bach i-kfiw */
+        }
+
+        .products {
+            padding: 1rem 1%;
+        }
+
+        .product-card {
+            border-width: 2px;
+            border-radius: 8px;
+        }
+
+        .product-card img {
+            height: 90px; /* Sgherna t-tswira bach tji m3a 3 boxes */
+        }
+
+        .product-card h3 {
+            font-size: 0.65rem;
+            margin: 5px 2px;
+        }
+
+        .product-card .price {
+            font-size: 0.6rem;
+            margin-bottom: 5px;
+        }
+
+        .product-card button {
+            padding: 4px 8px;
+            font-size: 0.55rem;
+            border-radius: 4px;
+        }
+        
+        .products h2 {
+            margin-bottom: 30px;
+            outline: 3px solid black;
+        }
+    }
+
+    /* --- Bouton Accueil Flottant --- */
+    .h {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    .h img {
+        width: 20px;
+        filter: invert(1);
+    }
+</style>
+
+    </style>
+</head>
+
+<body>
+    <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <section class="products">
+        <h2>ACCESSOIRES</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="casque1.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">2100 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque2.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">2000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque3.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">1300 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque4.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">1900 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">ض
+                <img src="casque5.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">650 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque6.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque7.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">150 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="casque8.jpeg" alt="produit">
+                <h3>Casque</h3><br>
+                <p></p><br>
+                <span class="price">400 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa1.png" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">6500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa2.webp" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">5000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa3.jpeg" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">3500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="lbsa4.jpg" alt="produit">
+                <h3>Vetement</h3><br>
+                <p></p><br>
+                <span class="price">4000 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat1.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">250 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat2.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">300 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat3.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">500 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat4.webp" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">400 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat5.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">350 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="ligat6.jpg" alt="produit">
+                <h3>gants</h3><br>
+                <p></p><br>
+                <span class="price">200 DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="carinage.jpg" alt="produit">
+                <h3>Accessoires</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="carinage2.jpg" alt="produit">
+                <h3>Accessoires</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers1.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers2.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers3.jpeg" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+            <div class="product-card">
+                <img src="stickers 4.png" alt="produit">
+                <h3>Stickers</h3><br>
+                <p></p><br>
+                <span class="price">?? DH</span><br>
+                <a href="contact.html"><button>SHOP NOW</button></a>
+            </div>
+        
+        
+        
+
+        </div>
+    </section>
+</body>
+
+</html>

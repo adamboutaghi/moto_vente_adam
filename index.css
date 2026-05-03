@@ -1,0 +1,179 @@
+/* --- 1. Reset & Variables --- */
+:root {
+    --primary-color: #000679;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Century Gothic', 'Segoe UI', sans-serif;
+    background: linear-gradient(rgba(0, 2, 45, 0.85), rgba(0, 0, 0, 0.6)), 
+                url('acc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. Header & Logo --- */
+header {
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    border: 3px solid var(--glass-border);
+    transition: var(--transition);
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+header img:hover {
+    filter: grayscale(0%);
+    transform: rotate(5deg) scale(1.05);
+    border-color: var(--text-light);
+    cursor: pointer;
+}
+
+/* --- 3. Titre Principal (Animation) --- */
+h1 {
+    font-size: clamp(1.8rem, 5vw, 4rem); /* Nqest l-minimum l' 1.8rem */
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    font-weight: 900;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInSlide 1s ease-out forwards;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeInSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 4. Navigation --- */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+nav li {
+    perspective: 1000px;
+}
+
+.Aa {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-light) !important;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.Aa:hover {
+    background: var(--text-light);
+    color: var(--text-dark) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* --- 5. Réseaux Sociaux --- */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px; /* Zt chwiya dyal l-espace l-t7t */
+}
+
+.social-container i {
+    font-size: 28px;
+    color: var(--text-light);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* --- 6. Footer --- */
+footer {
+    margin-top: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 100%;
+}
+
+/* --- 7. Responsive (L-gadd dyal Mobile) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 5%; /* Nqest padding */
+    }
+
+    header img {
+        width: 100px; /* Logo sgher chwiya */
+        height: 100px;
+    }
+
+    h1 {
+        letter-spacing: 2px; /* Nqest l'espace bin l-7rouf bach itjma3 */
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding: 0 20px;
+        gap: 10px; /* Nqest l-faragh bin l-boutonnat */
+    }
+
+    nav li {
+        width: 100%; /* Bouton i-akhod l'3rd dyal l'ecran */
+        max-width: 300px; /* Mayfoutch 300px bach mayjich twil bzaf */
+    }
+
+    .Aa {
+        text-align: center;
+        padding: 15px; /* Kbrt l'misa7a dyal l'clique */
+    }
+
+    .social-container {
+        gap: 20px;
+        margin-top: 30px;
+    }
+}

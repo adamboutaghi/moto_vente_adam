@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-image:  linear-gradient(rgba(0, 3, 57, 0.838),rgba(213, 213, 213, 0));   
+        }
+        *{
+            margin: 0;padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .contact{
+            position: relative;
+            min-height: 100vh;
+            padding: 50px 100px;
+            display:flex ;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .content{
+            max-width: 800PX; 
+            text-align: center;
+        }
+        .content h2{
+            font-size: 46PX; font-weight: 1000;
+            color: rgb(0, 0, 0);
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30PX;
+        }
+        .contactInfo{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+        .box{
+            position: relative;
+            padding: 20px 0;
+            display: fleX;
+        }
+        .icon{
+            min-width: 60PX;
+            height: 60PX;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 22PX;
+        }
+        .text{
+            display: flex;
+            margin-left: 20px;
+            font-size: 16px;
+            color: #000000;
+            flex-direction: column;
+            font-weight: 300;
+        }
+        .text h3{
+            font-weight: 500;
+            color: rgb(0, 0, 0);
+            font-size: 30PX;
+            font-weight: 700;
+        }
+        .text p{
+            color: #614c4c;
+        }
+        .contactForm{
+           width: 40%;
+           padding: 40PX;
+           background-color: #fff;
+           border-radius: 20PX;
+        }
+        .contactForm h2{
+            font-size: 30px;
+            color: #333;
+            font-weight: 500;
+        }
+        .inputBox{
+            position: relative;
+            width: 100%;
+            margin-top: 10PX;
+        }
+        .inputBox input{
+            width: 100%;
+            padding: 5PX 0;
+            font-size: 16PX;
+            margin: 10PX 0;
+            border: none;
+            border-bottom: 2PX solid black;
+            outline: none;
+        }
+        .inputBox textarea{
+            width: 100%;
+            padding: 5PX 0;
+            font-size: 16PX;
+            margin: 10PX 0;
+            border: none;
+            border-bottom: 2PX solid black;
+            outline: none;
+            resize: nonE;
+        }
+        #A{
+            background-color: #000000;
+            color: #fff;
+            border-radius: 10PX;
+        }
+        
+       /* Style du bouton flottant Accueil */
+.h {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* S'assure qu'il reste au-dessus du contenu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1); /* Effet transparent */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Bouton rond */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+/* Style de l'icône à l'intérieur */
+.home-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Force l'icône en blanc si elle est noire à l'origine */
+    transition: transform 0.3s ease;
+}
+
+/* Effets au Survol (Hover) */
+.h:hover {
+    background: #000679; /* Couleur assortie à vos boutons "Shop Now" */
+    transform: scale(1.1) rotate(5deg);
+    border-color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 6, 121, 0.5);
+}
+
+.h:hover .home-icon {
+    transform: scale(1.1);
+    filter: invert(1); /* Garde l'icône blanche */
+}
+
+/* Optionnel : Adaptation pour mobile */
+@media (max-width: 768px) {
+    .h {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+}
+    </style>
+</head>
+<body>
+    <section class="contact">
+    <div class="content">
+     <h2>Contactez-nous</h2>
+    </div>
+     <div class="container">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Addresse</h3>
+                    <p>LOT riad hadika SIDI MOUMEN  <br> CASABLANCA</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Téléphone</h3>
+                    <p>+212 620563738</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>adamboutaghi@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="contactForm">
+            <form>
+                <h2>message envoyé merci ! ✅</h2>
+            </form>
+        </div>
+     </div>
+    </section>
+</body>
+</html>

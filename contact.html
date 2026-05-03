@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contactez-nous</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* --- Styles lli drti déjà (bghit n-7afed 3lihom) --- */
+    * {
+        margin: 0; padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+        background-image: linear-gradient(rgba(0, 3, 57, 0.838), rgba(213, 213, 213, 0));
+        min-height: 100vh;
+    }
+
+    .contact {
+        position: relative;
+        min-height: 100vh;
+        padding: 50px 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .content h2 {
+        font-size: 46px; font-weight: 1000;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+    }
+
+    /* --- El-islah dial l-container (PC) --- */
+    .container {
+        width: 100%;
+        max-width: 1100px; /* Bach may-jiwch mtatlin bzaf f l'PC */
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 30px;
+        flex-wrap: wrap; /* Hadhi hiya l-mohimma l'mobile */
+    }
+
+    .contactInfo {
+        width: 45%; /* Khallina chwiya d l'espace */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box {
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+    }
+
+    .icon {
+        min-width: 60px;
+        height: 60px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 22px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .text {
+        margin-left: 20px;
+        color: #000;
+    }
+
+    .text h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .contactForm {
+        width: 50%;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .inputBox {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .inputBox input, .inputBox textarea {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        border: none;
+        border-bottom: 2px solid black;
+        outline: none;
+        background: transparent;
+    }
+
+    .zz {
+        border: none;
+        background-color: #000;
+        color: #fff;
+        border-radius: 10px;
+        width: 100%; /* I-ji 3la l-qedd nichan */
+        height: 45px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .zz:hover {
+        background-color: #000679;
+    }
+
+    /* --- Bouton Accueil Flottant --- */
+    .h {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .h img {
+        width: 24px;
+        filter: invert(1);
+    }
+
+    /* --- Responsive (Mobile) --- */
+    @media (max-width: 991px) {
+        .contact {
+            padding: 50px 20px;
+        }
+        .container {
+            flex-direction: column; /* I-ji dakchi wahed ta7t wahed */
+        }
+        .contactInfo, .contactForm {
+            width: 100%; /* I-akhdou l-3ard kamel */
+            margin-bottom: 40px;
+        }
+        .content h2 {
+            font-size: 32px;
+        }
+        .zz {
+            width: 100%;
+        }
+    }
+</style>
+    </style>
+</head>
+<body>
+    <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <section class="contact">
+    <div class="content">
+     <h2>Contactez-nous</h2>
+    </div>
+     <div class="container">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="text">
+                    <h3>Addresse</h3>
+                    <p>LOT riad hadika SIDI MOUMEN  <br> CASABLANCA <br><a href="https://maps.app.goo.gl/RRrx6XuwFTKkWLat7" target="_blank"><i class="fa-solid fa-location-dot"></i> Localisation</a></p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Téléphone</h3>
+                    <p>+212 620563738</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>adamboutaghi@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="contactForm">
+            <form>
+                <h2>send message <i class="fa-solid fa-comments"></i></h2>
+                <div class="inputBox">
+                    <input type="text" name="" required="required" placeholder="full name">
+                </div>
+                <div class="inputBox">
+                    <input type="email" name="" placeholder="E-mail" required>
+                </div>
+                <div class="inputBox">
+                    <textarea placeholder="type your message" required></textarea>
+                </div>
+                <div class="inputBox">
+                    <a href="contact2.html"><button class="zz" type="submit">Tapez</button></a>
+                </div>
+            </form>
+        </div>
+     </div>
+    </section>
+</body>
+</html>
