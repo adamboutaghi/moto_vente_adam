@@ -3,28 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire Client Simple</title>
+    <title>Formulaire Client | ALIEN MOTO</title>
     <style>
+        /* --- Styles de base --- */
         body {
-            background-image: linear-gradient(rgba(0, 3, 57, 0.838), rgba(213, 213, 213, 0));
-            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0, 3, 57, 0.9), rgba(0, 0, 0, 0.7)), url('acc.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
+        /* --- Conteneur Adaptatif (PC & Mobile) --- */
         .form-container {
-            width: 400px;
-            margin: 60px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px; /* Largeur max sur PC */
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 25px;
-            color: #333;
+            margin-bottom: 30px;
+            color: #000339;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-group {
@@ -33,128 +46,140 @@
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
-            color: #555;
+            color: #333;
         }
 
         input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             box-sizing: border-box;
+            font-size: 16px; /* Évite le zoom automatique sur iPhone */
+            transition: border-color 0.3s;
         }
 
         input:focus {
-            border-color: #4CAF50;
+            border-color: #000679;
             outline: none;
+            background-color: #f0f4ff;
         }
 
         button {
             width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
+            padding: 15px;
+            background-color: #000679;
             color: white;
             border: none;
-            font-size: 16px;
-            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            margin-top: 10px;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #000339;
+            box-shadow: 0 5px 15px rgba(0, 6, 121, 0.4);
+            transform: translateY(-2px);
         }
-         .h {
+
+        /* --- Bouton Retour Accueil --- */
+        .h {
             position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
         }
-        /* Style du bouton flottant Accueil */
-.h {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000; /* S'assure qu'il reste au-dessus du contenu */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1); /* Effet transparent */
-    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%; /* Bouton rond */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-}
 
-/* Style de l'icône à l'intérieur */
-.home-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(1); /* Force l'icône en blanc si elle est noire à l'origine */
-    transition: transform 0.3s ease;
-}
+        .home-icon {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
 
-/* Effets au Survol (Hover) */
-.h:hover {
-    background: #000679; /* Couleur assortie à vos boutons "Shop Now" */
-    transform: scale(1.1) rotate(5deg);
-    border-color: #fff;
-    box-shadow: 0 8px 25px rgba(0, 6, 121, 0.5);
-}
+        .h:hover {
+            background: #000679;
+            transform: scale(1.1) rotate(5deg);
+        }
 
-.h:hover .home-icon {
-    transform: scale(1.1);
-    filter: invert(1); /* Garde l'icône blanche */
-}
+        /* --- Media Queries (Ajustements Mobile) --- */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .form-container {
+                padding: 25px 20px;
+                border-radius: 10px;
+                margin-top: 60px; /* Espace pour le bouton retour */
+            }
 
-/* Optionnel : Adaptation pour mobile */
-@media (max-width: 768px) {
-    .h {
-        top: 15px;
-        left: 15px;
-        width: 45px;
-        height: 45px;
-    }
-}
+            h1 {
+                font-size: 22px;
+            }
+
+            .h {
+                width: 40px;
+                height: 40px;
+                top: 10px;
+                left: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-      <a class="h" href="index.html"><img src="homelogin.svg" alt=""></a>
+    <!-- Bouton Retour -->
+    <a class="h" href="index.html">
+        <img src="homelogin.svg" alt="Accueil" class="home-icon">
+    </a>
+
     <div class="form-container">
         <h1>Formulaire Client</h1>
         <form action="#" method="post">
             <div class="form-group">
-                <label for="nom">Nom :</label>
+                <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
             </div>
 
             <div class="form-group">
-                <label for="prenom">Prénom :</label>
+                <label for="prenom">Prénom</label>
                 <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
             </div>
 
             <div class="form-group">
-                <label for="telephone">Téléphone :</label>
+                <label for="telephone">Téléphone</label>
                 <input type="tel" id="telephone" name="telephone" placeholder="Ex: 0600000000" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email :</label>
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
             </div>
 
             <div class="form-group">
-                <label for="adresse">Adresse :</label>
+                <label for="adresse">Adresse</label>
                 <input type="text" id="adresse" name="adresse" placeholder="Votre adresse complète" required>
             </div>
 
-            <div class="form-group">
-                <button type="submit">Envoyer</button>
-            </div>
+            <button type="submit">Envoyer le dossier</button>
         </form>
     </div>
 </body>
