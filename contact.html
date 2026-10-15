@@ -120,6 +120,27 @@
         background-color: #000679;
     }
 
+    .submittedMessage h2 {
+        margin-bottom: 20px;
+        color: #000;
+    }
+
+    .submittedMessage dl {
+        display: grid;
+        grid-template-columns: max-content minmax(0, 1fr);
+        gap: 12px 16px;
+    }
+
+    .submittedMessage dt {
+        font-weight: bold;
+    }
+
+    .submittedMessage dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+    }
+
     /* --- Bouton Accueil Flottant --- */
     .h {
         position: fixed;
@@ -197,23 +218,55 @@
             </div>
         </div>
         <div class="contactForm">
-            <form>
+            <form id="contact-form">
                 <h2>send message <i class="fa-solid fa-comments"></i></h2>
                 <div class="inputBox">
-                    <input type="text" name="" required="required" placeholder="full name">
+                    <input type="text" name="nom" required="required" placeholder="full name">
                 </div>
                 <div class="inputBox">
-                    <input type="email" name="" placeholder="E-mail" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="inputBox">
-                    <textarea placeholder="type your message" required></textarea>
+                    <textarea name="message" placeholder="type your message" required></textarea>
                 </div>
                 <div class="inputBox">
-                    <a href="contact2.html"><button class="zz" type="submit">Tapez</button></a>
+                    <button class="zz" type="submit">Envoyer le message</button>
                 </div>
             </form>
         </div>
+        <section class="contactForm submittedMessage" id="submitted-message" aria-live="polite" hidden>
+            <h2>Message envoyé</h2>
+            <dl></dl>
+        </section>
      </div>
     </section>
+    <script>
+        const contactForm = document.querySelector('#contact-form');
+        const submittedMessage = document.querySelector('#submitted-message');
+        const messageDetails = submittedMessage.querySelector('dl');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const values = new FormData(contactForm);
+            const fields = [
+                ['Nom complet', 'nom'],
+                ['E-mail', 'email'],
+                ['Message', 'message']
+            ];
+
+            messageDetails.replaceChildren();
+            for (const [label, name] of fields) {
+                const term = document.createElement('dt');
+                const description = document.createElement('dd');
+                term.textContent = label;
+                description.textContent = values.get(name);
+                messageDetails.append(term, description);
+            }
+
+            submittedMessage.hidden = false;
+            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
 </body>
 </html>

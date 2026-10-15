@@ -142,6 +142,29 @@
             min-height: 120px;
         }
 
+        .order-summary h2 {
+            margin-bottom: 24px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .order-summary dl {
+            display: grid;
+            grid-template-columns: max-content minmax(0, 1fr);
+            gap: 14px 18px;
+        }
+
+        .order-summary dt {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .order-summary dd {
+            margin: 0;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+
         button {
             width: 100%;
             padding: 14px;
@@ -241,7 +264,7 @@
         <h1><i class="fas fa-shopping-cart"></i> Passer une Commande</h1>
         <p class="form-subtitle">Remplissez le formulaire ci-dessous pour commander votre moto</p>
         
-        <form action="traitement_commande.php" method="POST">
+        <form id="order-form">
             <!-- Informations sur la moto -->
             <div class="form-group">
                 <label for="modele"><i class="fas fa-motorcycle"></i> Modèle de la moto</label>
@@ -290,5 +313,47 @@
             <button type="submit"><i class="fas fa-check-circle"></i> Confirmer la Commande</button>
         </form>
     </div>
+    <section class="container order-summary" id="order-summary" aria-live="polite" hidden>
+        <h2>Récapitulatif de la commande</h2>
+        <dl></dl>
+    </section>
+
+    <script>
+        const orderForm = document.querySelector('#order-form');
+        const orderSummary = document.querySelector('#order-summary');
+        const orderDetails = orderSummary.querySelector('dl');
+
+        orderForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const values = new FormData(orderForm);
+            const fields = [
+                ['Modèle de la moto', 'modele'],
+                ['Nom', 'nom'],
+                ['Prénom', 'prenom'],
+                ['Téléphone', 'telephone'],
+                ['Adresse email', 'email'],
+                ['Adresse de livraison', 'adresse']
+            ];
+
+            orderDetails.replaceChildren();
+            for (const [label, name] of fields) {
+                const term = document.createElement('dt');
+                const description = document.createElement('dd');
+                term.textContent = label;
+                description.textContent = values.get(name);
+                orderDetails.append(term, description);
+            }
+
+            const paymentTerm = document.createElement('dt');
+            const paymentDescription = document.createElement('dd');
+            paymentTerm.textContent = 'Mode de paiement';
+            paymentDescription.textContent = orderForm.elements.paiement.selectedOptions[0].textContent;
+            orderDetails.append(paymentTerm, paymentDescription);
+
+            orderSummary.hidden = false;
+            orderSummary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
 </body>
 </html>

@@ -14,8 +14,10 @@
             margin: 0;
             padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
+            gap: 24px;
             min-height: 100vh;
         }
 
@@ -88,6 +90,29 @@
             transform: translateY(-2px);
         }
 
+        .submitted-info h2 {
+            margin-top: 0;
+            color: #000339;
+        }
+
+        .submitted-info dl {
+            display: grid;
+            grid-template-columns: max-content minmax(0, 1fr);
+            gap: 12px 16px;
+            margin-bottom: 0;
+        }
+
+        .submitted-info dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .submitted-info dd {
+            margin: 0;
+            overflow-wrap: anywhere;
+            color: #333;
+        }
+
         /* --- Bouton Retour Accueil --- */
         .h {
             position: fixed;
@@ -153,7 +178,7 @@
 
     <div class="form-container">
         <h1>Formulaire Client</h1>
-        <form action="#" method="post">
+        <form id="client-form" action="#" method="post">
             <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
@@ -182,5 +207,41 @@
             <button type="submit">Envoyer le dossier</button>
         </form>
     </div>
+
+    <section class="form-container submitted-info" id="submitted-info" aria-live="polite" hidden>
+        <h2>Dossier envoyé</h2>
+        <dl></dl>
+    </section>
+
+    <script>
+        const form = document.querySelector('#client-form');
+        const submittedInfo = document.querySelector('#submitted-info');
+        const details = submittedInfo.querySelector('dl');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const values = new FormData(form);
+            const fields = [
+                ['Nom', 'nom'],
+                ['Prénom', 'prenom'],
+                ['Téléphone', 'telephone'],
+                ['Email', 'email'],
+                ['Adresse', 'adresse']
+            ];
+
+            details.replaceChildren();
+            for (const [label, name] of fields) {
+                const term = document.createElement('dt');
+                const description = document.createElement('dd');
+                term.textContent = label;
+                description.textContent = values.get(name);
+                details.append(term, description);
+            }
+
+            submittedInfo.hidden = false;
+            submittedInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
 </body>
 </html>
